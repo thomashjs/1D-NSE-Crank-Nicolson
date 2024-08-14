@@ -1,0 +1,13 @@
+function F = sys(u, uc, bc, dx, dt, a, b, T) % lambda = 1
+% bc takes arguments xleft and xright
+% uc is solution at previous time step
+    M = (b-a)/dx-1;
+    r = -dt/(1i*dx^2);
+    for i = 2:M-1
+        F(i-1) = -r*u(i+1)+(1+2*r)*u(i)-r*u(i-1)-1/4*(abs(uc(i))^2+abs(u(i))^2)*(u(i)+uc(i));
+    end
+end
+
+function out = crank(uc, ic, bc, dx, dt, T)
+    
+end
